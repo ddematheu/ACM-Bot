@@ -1,0 +1,14 @@
+{
+  "name": "acm-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "final.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "botbuilder": "^3.4.4"
+  }
+}
