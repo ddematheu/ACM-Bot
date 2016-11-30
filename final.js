@@ -69,8 +69,8 @@ dialog.matches('weather_tomorrow', [
         yw.getSimpleWeather(results.response).then(function(res){
              session.send(results.response);
              session.send(res.forecast[0].date);
-             session.send('High' + res.forecast[0].high + 'F');
-             session.send('Low' + res.forecast[0].low + 'F');
+             session.send('High: ' + res.forecast[0].high + 'F');
+             session.send('Low: ' + res.forecast[0].low + 'F');
         });
     }
 ]);
