@@ -31,7 +31,7 @@ dialog.matches('weather_today', [
     },
     function (session, results) {
         yw.getSimpleWeather(results.response).then(function(res){
-          session.send('Weather for (%d,%d)', res.location.lat,res.location.long);
+          session.send('Weather for (%f,%f)', res.location.lat,res.location.long);
           session.send(res.date);
           session.send(res.weather.temperature.value + ' ' + res.weather.temperature.units);
         });
@@ -67,9 +67,10 @@ dialog.matches('weather_tomorrow', [
     },
     function (session, results) {
         yw.getSimpleWeather(results.response).then(function(res){
+             session.send(results.response);
              session.send(res.forecast[0].date);
-             session.send(res.forecast[0].high + 'F');
-             session.send(res.forecast[0].low + 'F');
+             session.send('High' + res.forecast[0].high + 'F');
+             session.send('Low' + res.forecast[0].low + 'F');
         });
     }
 ]);
@@ -85,6 +86,7 @@ dialog.matches('rain_today', [
     },
     function (session, results) {
             yw.getSimpleWeather(results.response).then(function(res){
+                
                 if(res.weather.condition == 'Rain')
                 {
                     session.send("It is raining today!")
